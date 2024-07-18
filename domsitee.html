@@ -98,6 +98,8 @@ footer {
     max-width: 33.33%;
   }
 }
+    // Logout logic here (e.g., clear session cookies, redirect to login page)
+		window.location.href = 'login.html';
 </style>
 </head>
 <body class="w3-light-grey">
@@ -106,12 +108,15 @@ footer {
 <div class="w3-container-fluid">
 <div class="w3-bar w3-striped w3-black w3-small" style="z-index: 8;">
   <span class="w3-bar-item w3-animate-left">
-  <a href="domsited.html">  
+  <a href="domsitee.html">  
     <img src="fatlogo.png" style="height: 82px; margin-top: 0px;">
   </a>
 </span>
   <h1 style="display: flex; justify-content: center;">Fidelity America Trust</h1>
-  </div>
+<div>
+  <a href="logout.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+</div>
+</div>
 </div>
 
 <!-- Sidebar/menu -->
@@ -252,7 +257,8 @@ container.addEventListener('click', () => {
   colMd12.classList.toggle('col-md-6');
   colMd12.classList.toggle('col-md-12');
 });
-  
+  // Logout logic here (e.g., clear session cookies, redirect to login page)
+		window.location.href = 'login.html';
 </script>
 
 </body>
