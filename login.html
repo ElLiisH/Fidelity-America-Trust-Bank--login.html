@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Fidelity American Trust</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<title>Fidelity American Trust</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
+	<style>
+		html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+		.chat-container {
+			max-width: 500px;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		}
+	</style>
 </head>
 <body class="w3-light-grey">
-
-<!-- Top container -->
-<!-- Top container -->
-<div class="w3-bar w3-striped w3-black w3-small" style="z-index: 8;">
-	<span class="w3-bar-item w3-animate-left">
-	<a href="domsitee.html">  
-	  <img src="fatlogo.png" style="height: 82px; margin-top: 0px;">
-	</a>
-  </span>
-	<h1 style="display: flex; justify-content: center;">Fidelity America Trust</h1>
-	
+	<!-- Top container -->
+	<div class="w3-bar w3-striped w3-black w3-small" style="z-index: 8;">
+		<span class="w3-bar-item w3-animate-left">
+			<a href="domsitee.html">
+				<img src="fatlogo.png" style="height: 82px; margin-top: 0px;">
+			</a>
+		</span>
+		<h1 style="display: flex; justify-content: center;">Fidelity America Trust</h1>
 	</div>
-  <main>
-    <div class="w3-card w3-padding-8 w3-center w3-animate-opacity" style="width: 50%; margin: 0 auto;">
-      <h2>Login</h2>
-      <form id="login-form">
-        <label for="Username">Username</label>
-        <input type="text" id="Username" name="Username" required><br><br>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="Login">
-      </form>
-      <div id="login-status"></div>
-    </div>
-  </main>
-  <script>
-    const form = document.getElementById('login-form');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const Username = document.getElementById('Username').value;
-      const password = document.getElementById('password').value;
-
-      if (Username === '' || password === '') {
-        document.getElementById('login-status').innerHTML = 'Please enter both username and password';
-      } else if (Username === 'MSteven' && password === 'MS1082') {
-        window.location.href = 'domsitee.html'; // redirect to welcome page
-      } else {
-        document.getElementById('login-status').innerHTML = 'We have no record of you';
-      }
-    });
-  </script>
+	<main>
+		<div class="w3-card w3-padding-8 w3-center w3-animate-opacity" style="width: 50%; margin: 0 auto;">
+			<h2>Login</h2>
+			<form id="login-form">
+				<label for="username">Username</label>
+				<input type="text" id="username" name="username" required><br><br>
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" required><br><br>
+				<input type="submit" value="Login">
+			</form>
+			<div id="login-status"></div>
+		</div>
+	</main>
+	<script>
+		const form = document.getElementById('login-form');
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+			if (username === 'MSteven3' && password === 'MS1082') {
+				window.location.href = 'domsitee.html'; // redirect to welcome page
+			} else {
+				document.getElementById('login-status').innerHTML = 'Invalid username or password';
+			}
+		});
+	</script>
 </body>
 </html>
