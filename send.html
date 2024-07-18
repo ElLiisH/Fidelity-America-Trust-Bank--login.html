@@ -55,18 +55,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   // Add an event listener to the transfer button
   transferBtn.addEventListener("click", function() {
-    if (transferMade !== 'true') {
-      // Display a prompt when the button is clicked
-      alert("Transfer successful!");
-      // Set the transferMade variable to true in session storage
-      sessionStorage.setItem('transferMade', 'true');
-      // Reload the page to clear the form data
-      location.reload(true);
-    } else {
-      alert("Fraudulent transaction detected!");
-      alert("Not so? Chat with our Live Agents to resolve this issue, Thanks!");
-    }
-  });
+  if (transferMade !== 'true') {
+    // Display a prompt when the button is clicked
+    alert("Transfer successful!");
+    // Set the transferMade variable to true in session storage
+    sessionStorage.setItem('transferMade', 'true');
+    // Reload the page to clear the form data
+    location.reload(true);
+  } else {
+    alert("Fraudulent transaction detected! Click Ok to chat with one of our Customer Service Agents");
+    window.location.href = 'chat.html'; // Redirect to another page
+  }
+});
 </script>
 </body>
 </html>
