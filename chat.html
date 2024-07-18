@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fidelity American Trust</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+		.chat-container {
+			max-width: 500px;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		}
+	</style>
+</head>
+<style>
+    .chat-log-container {
+  background-color: #5a5a5a; /* Light grey */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+</style>
+<body class="w3-light-grey">
+	<!-- Top container -->
+	<div class="w3-bar w3-striped w3-black w3-small" style="z-index: 8;">
+		<span class="w3-bar-item w3-animate-left">
+			<a href="domsitee.html">
+				<img src="fatlogo.png" style="height: 82px; margin-top: 0px;">
+			</a>
+		</span>
+		<h1 style="display: flex; justify-content: center;">Fidelity America Trust</h1>
+	</div>
+	<!-- Chat container -->
+<div class="chat-container" style="background-color: #0b0a0a ;">
+    <h1 style="text-decoration: underline; font-weight: bold; color: #4cbb17;">Chat Page</h1>
+    <div id="chat-log" class="chat-log-container" style="background-color: #fff;">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+    <button id="chat-send">Send</button>
+      
+    </div>
+  </div>
+    <script>
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        const chatLog = document.getElementById('chat-log');
+      
+        chatSend.addEventListener('click', () => {
+          const message = chatInput.value;
+          chatLog.innerHTML += `<p>You: ${message}</p>`;
+          chatInput.value = '';
+        });
+      </script>
+      <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+
+    <p>Powered by <a href="https://untd.io/r/Ac4BwjMr5Qht" target="_blank">LiisH</a></p>
+    
+  </footer>
+</body>
+</html>
