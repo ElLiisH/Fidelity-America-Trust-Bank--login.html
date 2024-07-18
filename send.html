@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Fidelity American Trust</title>
+<title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -9,64 +9,160 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+/* Add some styles to make the chat window look nice */
+@media only screen and (max-width: 600px) {
+  /* Styles for screens smaller than 600px */
+  .w3-container {
+    width: 90%;
+  }
+  #chat-log {
+    height: 200px;
+  }
+}
+.w3-container {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #fff; /* White background */
+    padding: 16px;
+    border-radius: 10px;
+  }
+  
+  .w3-container.w3-green.w3-padding-50:hover {
+  background-color: #000; /* Black color */
+}
+}
+  
+  /* Add green theme to the page */
+  body {
+    background-color: #fff; /* White background */
+  }
+  
+  .w3-bar {
+    background-color: #ffffff; /* Green background */
+  }
+  
+  .w3-button {
+    background-color: #4CAF50; /* Green background */
+    color: #fff; /* White text */
+  }
+  
+  .w3-green {
+    background-color: #4CAF50; /* Green background */
+  }
+  
+  .w3-border-green {
+    border-color: #4CAF50; /* Green border */
+  }
+  
+  .w3-text-green {
+    color: #4CAF50; /* Green text */
+  }
+  .live-chat-minimized {
+    height: 40px;
+  overflow: hidden;
+  min-height: 200px;
+  transition: height 0.5s; /* Add this line */
+
+footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-md-12 {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .col-md-12 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-md-12 {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
+}
 </style>
 </head>
 <body class="w3-light-grey">
-
-<!-- Top container -->
-<div class="w3-bar w3-striped w3-black w3-small" style="z-index: 8;">
-  <span class="w3-bar-item w3-animate-left">
-  <a href="domsitee.html">  
-    <img src="fatlogo.png" style="height: 82px; margin-top: 0px;">
-  </a>
-  </span>
-  <div class="w3-center" style="margin-top:1px;">
-    <h1>Transfer</h1>
-  </div>
-  </div>
-  
-  <div class="w3-card w3-padding-8 w3-center w3-animate-opacity" style="width: 50%; margin: 0 auto;">
+	<!-- Top container -->
+	<div class="w3-bar w3-striped w3-black w3-small" style="z-index: 8;">
+		<span class="w3-bar-item w3-animate-left">
+			<a href="domsitee.html">
+				<img src="fatlogo.png" style="height: 82px; margin-top: 0px;">
+			</a>
+		</span>
+		<div class="w3-center" style="margin-top:1px;">
+			<h1>Transfer</h1>
+		</div>
+	</div>
+	<div class="w3-card w3-padding-8 w3-center w3-animate-opacity" style="width: 50%; margin: 0 auto;">
     <div class="w3-section">
       <label>Account Number</label>
-      <input type="text" class="w3-input w3-border w3-round" required>
+      <input type="text" id="accountNumber" name="accountNumber" class="w3-input w3-border" required>
     </div>
     <div class="w3-section">
       <label>Bank Name</label>
-      <input type="text" class="w3-input w3-border w3-round" required>
+      <input type="text" id="bankName" name="bankName" class="w3-input w3-border" pattern="[0-9]" required>
+    </div>
+    <div class="w3-section">
+      <label>Sort Code</label>
+      <input type="text" id="branchCode" name="branchCode" class="w3-input w3-border" pattern="[0-9]" required>
     </div>
     <div class="w3-section">
       <label>Amount to Send</label>
-      <input type="text" class="w3-input w3-border w3-round" required>
+      <input type="text" id="amount" name="amount" class="w3-input w3-border" required>
     </div>
     <button id="transferBtn" class="w3-button w3-block w3-green w3-section" style="width:100%">Transfer</button>
   </div>
-  <!-- Footer -->
-  <footer class="w3-container w3-padding-16 w3-light-grey">
-    <p>Powered by <a href="(link unavailable)" target="_blank">LiisH</a></p>
-  </footer>
-  <!-- End page content -->
+  
+	<!-- Footer -->
+	<footer class="w3-container w3-padding-16 w3-light-grey">
+		<p>Powered by <a href="(link unavailable)" target="_blank">LiisH</a></p>
+	</footer>
+	<!-- End page content -->
 </div>
 <script>
-  // Get the transfer button
-  var transferBtn = document.getElementById("transferBtn");
-
-  // Check if a transfer has already been made
-  var transferMade = sessionStorage.getItem('transferMade');
-
-  // Add an event listener to the transfer button
-  transferBtn.addEventListener("click", function() {
-  if (transferMade !== 'true') {
-    // Display a prompt when the button is clicked
-    alert("Transfer successful!");
-    // Set the transferMade variable to true in session storage
-    sessionStorage.setItem('transferMade', 'true');
-    // Reload the page to clear the form data
-    location.reload(true);
-  } else {
-    alert("Fraudulent transaction detected! Click Ok to chat with one of our Customer Service Agents");
-    window.location.href = 'chat.html'; // Redirect to another page
-  }
-});
+	// Get the transfer button
+	var transferBtn = document.getElementById("transferBtn");
+	
+	// Set the account number to transfer to
+	var accountNumberToTransferTo = "314288371";
+	
+	// Add an event listener to the transfer button
+	transferBtn.addEventListener("click", function() {
+		// Get the account number entered by the user
+		var accountNumberEntered = document.getElementById("accountNumber").value;
+		
+		// Check if the account number entered matches the account number to transfer to
+		if (accountNumberEntered === accountNumberToTransferTo) {
+			// Display a prompt when the button is clicked
+			alert("Transfer successful!");
+			// Set the transferMade variable to true in session storage
+			sessionStorage.setItem('transferMade', 'true');
+			// Reload the page to clear the form data
+			location.reload(true);
+		} else {
+			// Display an error message if the transaction is blocked
+alert("Transaction blocked! Please contact us at fidelityamericantrust@gmail.com for further assistance.");
+		}
+	});
 </script>
 </body>
 </html>
