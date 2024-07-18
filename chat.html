@@ -39,30 +39,39 @@
 		<h1 style="display: flex; justify-content: center;">Fidelity America Trust</h1>
 	</div>
 	<!-- Chat container -->
-<div class="chat-container" style="background-color: #0b0a0a ;">
-    <h1 style="text-decoration: underline; font-weight: bold; color: #4cbb17;">Chat Page</h1>
-    <div id="chat-log" class="chat-log-container" style="background-color: #fff;">
-        <input type="text" id="chat-input" placeholder="Type a message...">
-    <button id="chat-send">Send</button>
-      
-    </div>
-  </div>
+	<div class="chat-container" style="background-color: #0b0a0a ;">
+		<h1 style="text-decoration: underline; font-weight: bold; color: #4cbb17;">Chat Page</h1>
+		<div id="chat-log" class="chat-log-container" style="background-color: #fff;">
+			<input type="text" id="chat-input" placeholder="Type a message...">
+			<button id="chat-send">Send</button>
+		</div>
+	</div>
     <script>
         const chatInput = document.getElementById('chat-input');
         const chatSend = document.getElementById('chat-send');
         const chatLog = document.getElementById('chat-log');
-      
+        
         chatSend.addEventListener('click', () => {
-          const message = chatInput.value;
-          chatLog.innerHTML += `<p>You: ${message}</p>`;
-          chatInput.value = '';
+            const message = chatInput.value;
+            if (message !== '') {
+                chatLog.innerHTML += `<p>You: ${message}</p>`;
+                chatInput.value = '';
+                
+                // Check if the message is "Transfer successful!"
+                if (message === "Transfer successful!") {
+                    // Display a particular reply with an email address
+                    chatLog.innerHTML += `<p>Bot: Thank you for using our service! Please contact us at <a href="mailto:fidelityamericatrust@gmail.com">fidelityamericatrust@gmail.com</a> for further assistance.</p>`;
+                } else {
+                    // Display a default reply with an email address
+                    chatLog.innerHTML += `<p>Bot: Thank you for reaching out! Please contact us at <a href="mailto:fidelityamericatrust@gmail.com">fidelityamericatrust@gmail.com</a> for further assistance.</p>`;
+                }
+            }
         });
-      </script>
-      <!-- Footer -->
-  <footer class="w3-container w3-padding-16 w3-light-grey">
-
-    <p>Powered by <a href="https://untd.io/r/Ac4BwjMr5Qht" target="_blank">LiisH</a></p>
+    </script>
     
-  </footer>
+	<!-- Footer -->
+	<footer class="w3-container w3-padding-16 w3-light-grey">
+		<p>Powered by <a href="(link unavailable)" target="_blank">LiisH</a></p>
+	</footer>
 </body>
 </html>
