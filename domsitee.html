@@ -10,6 +10,15 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 /* Add some styles to make the chat window look nice */
+@media only screen and (max-width: 600px) {
+  /* Styles for screens smaller than 600px */
+  .w3-container {
+    width: 90%;
+  }
+  #chat-log {
+    height: 200px;
+  }
+}
 .w3-container {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: #fff; /* White background */
@@ -17,31 +26,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     border-radius: 10px;
   }
   
-  #chat-log {
-    height: 300px;
-    overflow-y: auto;
-    padding: 16px;
-    background-color: #f0f0f0; /* Light grey background */
-  }
-  
-  #chat-input {
-    width: 75%;
-    padding: 16px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background-color: #fff; /* White background */
-  }
-  
-  #chat-send {
-    width: 23%;
-    padding: 16px;
-    background-color: #4CAF50; /* Green background */
-    color: #fff; /* White text */
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+  .w3-container.w3-green.w3-padding-50:hover {
+  background-color: #000; /* Black color */
+}
+}
   
   /* Add green theme to the page */
   body {
@@ -73,17 +61,42 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   overflow: hidden;
   min-height: 200px;
   transition: height 0.5s; /* Add this line */
-}
 
-.live-chat-maximized {
-  height: 40px; /* Set a maximum height */
-  overflow-y: auto;
-  transition: height 0.5s; /* Add this line */
-}
 footer {
   position: sticky;
   bottom: 0;
   width: 100%;
+}
+<!-- CSS code -->
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-md-12 {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .col-md-12 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-md-12 {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
 }
 </style>
 </head>
@@ -148,76 +161,31 @@ footer {
     <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
   </header>
 
-  <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-full">
-      <div class="w3-container w3-green w3-padding-50">
-        <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div>
-        <div class="w3-clear w3-animate-opacity w3-center">
-        <h4>Available Balance</h4>
-          <h1>$120,000.00</h1>
-        </div>
-      </div>
-      
+  <div class="w3-row-padding w3-margin-bottom"> 
+    <div class="w3-full"> 
+      <div class="w3-container w3-green w3-padding-50" style="transition: background-color 0.5s;"> 
+        <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div> 
+        <div class="w3-clear w3-animate-opacity w3-center"> 
+          <h4>Available Balance</h4> 
+          <h1>$120,000.00</h1> 
+        </div> 
+      </div> 
+    </div> 
+  </div>
+      <button class="w3-button w3-large w3-black w3-margin-bottom" onclick="location.href='send.html'"><i class="fa fa-money" style="margin-right: 10px;"> Transfers </i></button>
+        <button class="w3-button w3-large w3-black w3-margin-bottom" onclick="location.href='https://www.kayak.com/flights'"><i class="fa fa-plane" style="margin-right: 10px;"></i> Book a Flight </button>
+      <button class="w3-button w3-large w3-black w3-margin-bottom" onclick="location.href='https://www.booking.com/'"><i class="fa fa-hotel">   Hotel Reservation </i></button>
+      <button class="w3-button w3-large w3-black w3-margin-bottom" onclick="location.href='https://bitcoin.org/en/'"><i class="fa fa-bitcoin">  Buy Bitcoin </i></button>
     </div>
     <div class="w3-quarter">
     </div>
   </div>
 
-  <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-twothird">
-        <h5>Recent transactions</h5>
-        <table class="w3-table w3-striped w3-white">
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>Stevie Polsen</td>
-            <td><i>-$1700</i></td>
-            <td><i>17 mins ago</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>Nathan WIlde</td>
-            <td><i>-$4000</i></td>
-            <td><i>50 mins ago</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>David Snow</td>
-            <td><i>-$2000</i></td>
-            <td><i>3 hours ago</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>Benson Royale</td>
-            <td><i>-$1500</i></td>
-            <td><i>17/06/2024</i></td>
-          </tr>
-          <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-            <td>Theresa Hanson</td>
-            <td><i>-$1000</i></td>
-            <td><i>15/06/2024</i></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-  <hr>
+  
   
 
   </div>
-  <br>
-  
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">LiisH</a></p>
-    <!-- Chat window -->
-    <div class="w3-container w3-card w3-margin-bottom" style="width:300px;height:400px;position:fixed;bottom:0;right:0;z-index:1001;overflow-y: auto;">
-      <h5>Live Chat</h5>
-      <input type="text" id="chat-input" placeholder="Type a message...">
-      <button id="chat-send">Send</button>
-      <div id="chat-log"></div>
-    </div>
-    
-  </div>
+ 
 </div>
     </div>
   </div>
@@ -270,9 +238,19 @@ const chatSend = document.getElementById('chat-send');
 
   chatSend.addEventListener('click', () => {
     const message = chatInput.value;
-    chatLog.innerHTML += <p style="color: #000000;">You: ${message}</p>;
+    chatLog.innerHTML += `<p style="color: #000000;">You: ${message}</p>`;
     chatInput.value = '';
   });
+
+  const container = document.querySelector('.container');
+const row = document.querySelector('.row');
+const colMd12 = document.querySelector('.col-md-12');
+
+// Add event listener to toggle classes on click
+container.addEventListener('click', () => {
+  colMd12.classList.toggle('col-md-6');
+  colMd12.classList.toggle('col-md-12');
+});
   
 </script>
 
