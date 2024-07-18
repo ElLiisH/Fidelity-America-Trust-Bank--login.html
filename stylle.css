@@ -1,0 +1,59 @@
+/* Add some styles to make the chat window look nice */
+.w3-container {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #fff; /* White background */
+    padding: 16px;
+    border-radius: 10px;
+  }
+  
+  #chat-log {
+    height: 300px;
+    overflow-y: auto;
+    padding: 16px;
+    background-color: #f0f0f0; /* Light grey background */
+  }
+  
+  #chat-input {
+    width: 75%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #fff; /* White background */
+  }
+  
+  #chat-send {
+    width: 23%;
+    padding: 16px;
+    background-color: #4CAF50; /* Green background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  /* Add green theme to the page */
+  body {
+    background-color: #fff; /* White background */
+  }
+  
+  .w3-bar {
+    background-color: #4CAF50; /* Green background */
+  }
+  
+  .w3-button {
+    background-color: #4CAF50; /* Green background */
+    color: #fff; /* White text */
+  }
+  
+  .w3-green {
+    background-color: #4CAF50; /* Green background */
+  }
+  
+  .w3-border-green {
+    border-color: #4CAF50; /* Green border */
+  }
+  
+  .w3-text-green {
+    color: #4CAF50; /* Green text */
+  }

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+/* Add some styles to make the chat window look nice */
+.w3-container {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #fff; /* White background */
+    padding: 16px;
+    border-radius: 10px;
+  }
+  
+  #chat-log {
+    height: 300px;
+    overflow-y: auto;
+    padding: 16px;
+    background-color: #f0f0f0; /* Light grey background */
+  }
+  
+  #chat-input {
+    width: 75%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #fff; /* White background */
+  }
+  
+  #chat-send {
+    width: 23%;
+    padding: 16px;
+    background-color: #4CAF50; /* Green background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  /* Add green theme to the page */
+  body {
+    background-color: #fff; /* White background */
+  }
+  
+  .w3-bar {
+    background-color: #ffffff; /* Green background */
+  }
+  
+  .w3-button {
+    background-color: #4CAF50; /* Green background */
+    color: #fff; /* White text */
+  }
+  
+  .w3-green {
+    background-color: #4CAF50; /* Green background */
+  }
+  
+  .w3-border-green {
+    border-color: #4CAF50; /* Green border */
+  }
+  
+  .w3-text-green {
+    color: #4CAF50; /* Green text */
+  }
+  .live-chat-minimized {
+    height: 40px;
+  overflow: hidden;
+  min-height: 200px;
+  transition: height 0.5s; /* Add this line */
+}
+
+.live-chat-maximized {
+  height: 40px; /* Set a maximum height */
+  overflow-y: auto;
+  transition: height 0.5s; /* Add this line */
+}
+footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
+</style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-striped w3-black w3-small" style="z-index: 8;">
+  <span class="w3-bar-item w3-animate-left">
+  <a href="domsited.html">  
+    <img src="fatlogo.png" style="height: 82px; margin-top: 0px;">
+  </a>
+</span>
+  <h1 style="display: flex; justify-content: center;">Fidelity America Trust</h1>
+  
+  </div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome, <strong>Michael Stevenson</strong></span><br>
+      <div class="w3-col s4">
+      <img src="MStevenson.jpeg" alt="Profile Picture" style="width:100%;height: 80px;border-radius:100%;margin-top:20px;">
+      </div>
+    </div>
+    <div id="date-time"></div>
+  <script>
+    setInterval(function() {
+      var currentDateTime = new Date();
+      var formattedDateTime = currentDateTime.toLocaleString();
+      document.getElementById("date-time").innerHTML = formattedDateTime;
+    }, 1000);
+  </script>
+</div>
+  </div>
+  
+  <hr>
+  <div class="w3-container">
+    <h5>Services</h5>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="send.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-money fa-fw"></i>  Send Money</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-laptop fa-fw"></i>  Pay bills</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-credit-card fa-fw"></i>  Request Credit Card</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-balance-scale fa-fw"></i>  Dispute Resolution</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
+    <a href="profile.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw"></i>  Profile</a><br><br>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-full">
+      <div class="w3-container w3-green w3-padding-50">
+        <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div>
+        <div class="w3-clear w3-animate-opacity w3-center">
+        <h4>Available Balance</h4>
+          <h1>$120,000.00</h1>
+        </div>
+      </div>
+      
+    </div>
+    <div class="w3-quarter">
+    </div>
+  </div>
+
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-twothird">
+        <h5>Recent transactions</h5>
+        <table class="w3-table w3-striped w3-white">
+          <tr>
+            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td>Stevie Polsen</td>
+            <td><i>-$1700</i></td>
+            <td><i>17 mins ago</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td>Nathan WIlde</td>
+            <td><i>-$4000</i></td>
+            <td><i>50 mins ago</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td>David Snow</td>
+            <td><i>-$2000</i></td>
+            <td><i>3 hours ago</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td>Benson Royale</td>
+            <td><i>-$1500</i></td>
+            <td><i>17/06/2024</i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td>Theresa Hanson</td>
+            <td><i>-$1000</i></td>
+            <td><i>15/06/2024</i></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <hr>
+  
+
+  </div>
+  <br>
+  
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">LiisH</a></p>
+    <!-- Chat window -->
+    <div class="w3-container w3-card w3-margin-bottom" style="width:300px;height:400px;position:fixed;bottom:0;right:0;z-index:1001;overflow-y: auto;">
+      <h5>Live Chat</h5>
+      <input type="text" id="chat-input" placeholder="Type a message...">
+      <button id="chat-send">Send</button>
+      <div id="chat-log"></div>
+    </div>
+    
+  </div>
+</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">LiisH</a></p>
+    
+  </footer>
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+document.addEventListener('DOMContentLoaded', function(){
+    const chatContainer = document.querySelector('.live-chat-minimized');
+    const toggleButton = document.querySelector('.toggle-chat');
+
+    toggleButton.addEventListener('click', () => {
+      chatContainer.classList.toggle('live-chat-minimized');
+      chatContainer.classList.toggle('live-chat-maximized');
+    });
+  });
+const chatSend = document.getElementById('chat-send');
+  const chatInput = document.getElementById('chat-input');
+  const chatLog = document.getElementById('chat-log');
+
+  chatSend.addEventListener('click', () => {
+    const message = chatInput.value;
+    chatLog.innerHTML += <p style="color: #000000;">You: ${message}</p>;
+    chatInput.value = '';
+  });
+  
+</script>
+
+</body>
+</html>

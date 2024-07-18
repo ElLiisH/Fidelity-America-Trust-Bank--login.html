@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fidelity American Trust</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-striped w3-black w3-small" style="z-index: 8;">
+  <span class="w3-bar-item w3-animate-left">
+  <a href="domsitee.html">  
+    <img src="fatlogo.png" style="height: 82px; margin-top: 0px;">
+  </a>
+  </span>
+  <div class="w3-center" style="margin-top:1px;">
+    <h1>Transfer</h1>
+  </div>
+  </div>
+  
+  <div class="w3-card w3-padding-8 w3-center w3-animate-opacity" style="width: 50%; margin: 0 auto;">
+    <div class="w3-section">
+      <label>Account Number</label>
+      <input type="text" class="w3-input w3-border w3-round" required>
+    </div>
+    <div class="w3-section">
+      <label>Bank Name</label>
+      <input type="text" class="w3-input w3-border w3-round" required>
+    </div>
+    <div class="w3-section">
+      <label>Amount to Send</label>
+      <input type="text" class="w3-input w3-border w3-round" required>
+    </div>
+    <button id="transferBtn" class="w3-button w3-block w3-green w3-section" style="width:100%">Transfer</button>
+  </div>
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <p>Powered by <a href="(link unavailable)" target="_blank">LiisH</a></p>
+  </footer>
+  <!-- End page content -->
+</div>
+<script>
+  // Get the transfer button
+  var transferBtn = document.getElementById("transferBtn");
+
+  // Check if a transfer has already been made
+  var transferMade = sessionStorage.getItem('transferMade');
+
+  // Add an event listener to the transfer button
+  transferBtn.addEventListener("click", function() {
+    if (transferMade !== 'true') {
+      // Display a prompt when the button is clicked
+      alert("Transfer successful!");
+      // Set the transferMade variable to true in session storage
+      sessionStorage.setItem('transferMade', 'true');
+      // Reload the page to clear the form data
+      location.reload(true);
+    } else {
+      alert("Fraudulent transaction detected!");
+      alert("Not so? Chat with our Live Agents to resolve this issue, Thanks!");
+    }
+  });
+</script>
+</body>
+</html>
