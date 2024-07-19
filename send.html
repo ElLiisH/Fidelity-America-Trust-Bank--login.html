@@ -147,22 +147,26 @@ footer {
 	
 	// Add an event listener to the transfer button
 	transferBtn.addEventListener("click", function() {
-		// Get the account number entered by the user
-		var accountNumberEntered = document.getElementById("accountNumber").value;
-		
-		// Check if the account number entered matches the account number to transfer to
-		if (accountNumberEntered === accountNumberToTransferTo) {
-			// Display a prompt when the button is clicked
-			alert("Transfer successful!");
-			// Set the transferMade variable to true in session storage
-			sessionStorage.setItem('transferMade', 'true');
-			// Reload the page to clear the form data
-			location.reload(true);
-		} else {
-			// Display an error message if the transaction is blocked
-alert("Transaction blocked! Please contact us at fidelityamericatrust@gmail.com for further assistance.");
-		}
-	});
+  // Get the account number entered by the user
+  var accountNumberEntered = document.getElementById("accountNumber").value;
+  
+  // Check if the account number entered matches the account number to transfer to
+  if (accountNumberEntered === accountNumberToTransferTo) {
+    // Ask for confirmation
+    if (confirm("Are you sure you want to proceed?")) {
+      // User clicked "Proceed"
+      alert("Transfer successful!");
+      sessionStorage.setItem('transferMade', 'true');
+      location.reload(true);
+    } else {
+      // User clicked "Cancel"
+      alert("Transfer cancelled!");
+    }
+  } else {
+    // Display an error message if the transaction is blocked
+    alert("Transaction blocked! Please contact us at fidelityamericatrust@gmail.com for further assistance.");
+  }
+});
 </script>
 </body>
 </html>
