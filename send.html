@@ -29,7 +29,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   .w3-container.w3-green.w3-padding-50:hover {
   background-color: #000; /* Black color */
 }
-}
+
   
   /* Add green theme to the page */
   body {
@@ -113,23 +113,25 @@ footer {
 		</div>
 	</div>
 	<div class="w3-card w3-padding-8 w3-center w3-animate-opacity" style="width: 50%; margin: 0 auto;">
-    <div class="w3-section">
-      <label>Account Number</label>
-      <input type="text" id="accountNumber" name="accountNumber" class="w3-input w3-border" required>
-    </div>
-    <div class="w3-section">
-      <label>Bank Name</label>
-      <input type="text" id="bankName" name="bankName" class="w3-input w3-border" pattern="[0-9]" required>
-    </div>
-    <div class="w3-section">
-      <label>Sort Code</label>
-      <input type="text" id="branchCode" name="branchCode" class="w3-input w3-border" pattern="[0-9]" required>
-    </div>
-    <div class="w3-section">
-      <label>Amount to Send</label>
-      <input type="text" id="amount" name="amount" class="w3-input w3-border" required>
-    </div>
-    <button id="transferBtn" class="w3-button w3-block w3-green w3-section" style="width:100%">Transfer</button>
+    <form id="transferForm">
+      <div class="w3-section">
+        <label>Account Number</label>
+        <input type="text" id="accountNumber" name="accountNumber" class="w3-input w3-border" required>
+      </div>
+      <div class="w3-section">
+        <label>Bank Name</label>
+        <input type="text" id="bankName" name="bankName" class="w3-input w3-border" required>
+      </div>
+      <div class="w3-section">
+        <label>Sort Code</label>
+        <input type="text" id="branchCode" name="branchCode" class="w3-input w3-border" pattern="[0-9]{6}" required>
+      </div>
+      <div class="w3-section">
+        <label>Amount to Send</label>
+        <input type="text" id="amount" name="amount" class="w3-input w3-border" required>
+      </div>
+      <button id="transferBtn" class="w3-button w3-block w3-green w3-section" style="width:100%">Transfer</button>
+    </form>
   </div>
   
 	<!-- Footer -->
@@ -139,34 +141,55 @@ footer {
 	<!-- End page content -->
 </div>
 <script>
-	// Get the transfer button
-	var transferBtn = document.getElementById("transferBtn");
-	
-	// Set the account number to transfer to
-	var accountNumberToTransferTo = "3142888371";
-	
-	// Add an event listener to the transfer button
-	transferBtn.addEventListener("click", function() {
-  // Get the account number entered by the user
-  var accountNumberEntered = document.getElementById("accountNumber").value;
-  
-  // Check if the account number entered matches the account number to transfer to
-  if (accountNumberEntered === accountNumberToTransferTo) {
-    // Ask for confirmation
-    if (confirm("Are you sure you want to proceed?")) {
-      // User clicked "Proceed"
-      alert("Transfer successful!");
-      sessionStorage.setItem('transferMade', 'true');
-      location.reload(true);
+  // Get the transfer button
+  var transferBtn = document.getElementById("transferBtn");
+
+  // Set the account number to transfer to
+  var accountNumberToTransferTo = "3142888371";
+
+  // Add an event listener to the transfer button
+  transferBtn.addEventListener("click", function() {
+    // Get the account number entered by the user
+    var accountNumberEntered = document.getElementById("accountNumber").value;
+
+    // Check if the account number entered matches the account number to transfer to
+    if (accountNumberEntered === accountNumberToTransferTo) {
+      // Ask for confirmation
+      if (confirm("Are you sure you want to send the amount?")) {
+        // User clicked "Proceed"
+        transferAmount(); // Call transferAmount() here
+        alert("Transfer successful!");
+        localStorage.setItem('transferMade', 'true');
+        window.location.href='domsitee.html';
+      } else {
+        // User clicked "Cancel"
+        alert("Transfer cancelled!");
+      }
     } else {
-      // User clicked "Cancel"
-      alert("Transfer cancelled!");
+      // Display an error message if the transaction is blocked
+      alert("Transaction blocked! Please contact us at fidelityamericatrust@gmail.com for further assistance.");
     }
-  } else {
-    // Display an error message if the transaction is blocked
-    alert("Transaction blocked! Please contact us at fidelityamericatrust@gmail.com for further assistance.");
+  });
+
+  function transferAmount() {
+    var transferAmount = document.getElementById('amount').value;
+    var currentBalance = parseFloat(localStorage.getItem('balance'));
+    if (isNaN(currentBalance)) {
+      currentBalance = 0;
+    }
+    var newBalance = currentBalance - parseFloat(transferAmount);
+    console.log("New Balance: " + newBalance);
+    localStorage.setItem('balance', newBalance);
+    window.location.href = 'domsitee.html';
   }
-});
+
+  // Get the form element
+  var form = document.getElementById('transferForm');
+
+  // Add an event listener to the form submission
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+  });
 </script>
 </body>
 </html>
