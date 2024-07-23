@@ -29,7 +29,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   .w3-container.w3-green.w3-padding-50:hover {
   background-color: #000; /* Black color */
 }
-}
+
   
   /* Add green theme to the page */
   body {
@@ -98,8 +98,10 @@ footer {
     max-width: 33.33%;
   }
 }
-    // Logout logic here (e.g., clear session cookies, redirect to login page)
-		window.location.href = 'login.html';
+.balance-text {
+  font-size: 50px; /* or any size you prefer */
+  font-weight: bold; /* optional, to make it bold */
+}
 </style>
 </head>
 <body class="w3-light-grey">
@@ -108,15 +110,12 @@ footer {
 <div class="w3-container-fluid">
 <div class="w3-bar w3-striped w3-black w3-small" style="z-index: 8;">
   <span class="w3-bar-item w3-animate-left">
-  <a href="domsitee.html">  
+  <a href="domsited.html">  
     <img src="fatlogo.png" style="height: 82px; margin-top: 0px;">
   </a>
 </span>
   <h1 style="display: flex; justify-content: center;">Fidelity America Trust</h1>
-<div>
-  <a href="logout.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-</div>
-</div>
+  </div>
 </div>
 
 <!-- Sidebar/menu -->
@@ -173,7 +172,7 @@ footer {
         <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div> 
         <div class="w3-clear w3-animate-opacity w3-center"> 
           <h4>Available Balance</h4> 
-          <h1>£32,195,124.70</h1> 
+          <span id="balance" style="font-size: 36px; font-weight: bold;">£32,195,124.70</span>
         </div> 
       </div> 
     </div> 
@@ -207,59 +206,37 @@ footer {
 </div>
 
 <script>
-// Get the Sidebar
-var mySidebar = document.getElementById("mySidebar");
+  // Set the initial balance when the page loads
+  window.addEventListener('load', function() {
+    var initialBalance = 32195124.70; // Set the initial balance here
+    var storedBalance = localStorage.getItem('balance');
+    if (storedBalance === null) {
+      localStorage.setItem('balance', initialBalance);
+    }
+    updateBalance(); // Call updateBalance() here
+  });
 
-// Get the DIV with overlay effect
-var overlayBg = document.getElementById("myOverlay");
-
-// Toggle between showing and hiding the sidebar, and add overlay effect
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-    overlayBg.style.display = "none";
-  } else {
-    mySidebar.style.display = 'block';
-    overlayBg.style.display = "block";
+  // Update the balance when the user makes a transfer
+  function transferAmount() {
+    var transferAmount = document.getElementById('amount').value;
+    var currentBalance = parseFloat(localStorage.getItem('balance'));
+    if (isNaN(currentBalance)) {
+      currentBalance = 0;
+    }
+    var newBalance = currentBalance - parseFloat(transferAmount);
+    localStorage.setItem('balance', newBalance);
+    updateBalance(); // Call updateBalance() here
+    window.location.href = 'domsitee.html';
   }
-}
 
-// Close the sidebar with the close button
-function w3_close() {
-  mySidebar.style.display = "none";
-  overlayBg.style.display = "none";
-}
-document.addEventListener('DOMContentLoaded', function(){
-    const chatContainer = document.querySelector('.live-chat-minimized');
-    const toggleButton = document.querySelector('.toggle-chat');
-
-    toggleButton.addEventListener('click', () => {
-      chatContainer.classList.toggle('live-chat-minimized');
-      chatContainer.classList.toggle('live-chat-maximized');
-    });
-  });
-const chatSend = document.getElementById('chat-send');
-  const chatInput = document.getElementById('chat-input');
-  const chatLog = document.getElementById('chat-log');
-
-  chatSend.addEventListener('click', () => {
-    const message = chatInput.value;
-    chatLog.innerHTML += `<p style="color: #000000;">You: ${message}</p>`;
-    chatInput.value = '';
-  });
-
-  const container = document.querySelector('.container');
-const row = document.querySelector('.row');
-const colMd12 = document.querySelector('.col-md-12');
-
-// Add event listener to toggle classes on click
-container.addEventListener('click', () => {
-  colMd12.classList.toggle('col-md-6');
-  colMd12.classList.toggle('col-md-12');
-});
-  // Logout logic here (e.g., clear session cookies, redirect to login page)
-		window.location.href = 'login.html';
+  // Update the balance display
+  function updateBalance() {
+    var currentBalance = parseFloat(localStorage.getItem('balance'));
+    if (isNaN(currentBalance)) {
+      currentBalance = 0;
+    }
+    document.getElementById('balance').innerHTML = '£' + currentBalance.toFixed(2);
+  }
 </script>
-
 </body>
 </html>
