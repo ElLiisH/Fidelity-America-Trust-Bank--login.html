@@ -18,6 +18,13 @@
 			border-radius: 10px;
 			box-shadow: 0 0 10px rgba(0,0,0,0.1);
 		}
+		function logout() {
+  // Clear local storage
+  localStorage.clear();
+  
+  // Redirect to login page
+  window.location.href = 'login.html';
+}
 	</style>
 </head>
 <body class="w3-light-grey">
