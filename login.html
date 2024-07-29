@@ -45,16 +45,21 @@
 	</main>
 	<script>
 		const form = document.getElementById('login-form');
-		form.addEventListener('submit', (e) => {
-			e.preventDefault();
-			const username = document.getElementById('username').value;
-			const password = document.getElementById('password').value;
-			if (username === 'MSteven3' && password === 'MS1082') {
-				window.location.href = 'domsitee.html'; // redirect to welcome page
-			} else {
-				document.getElementById('login-status').innerHTML = 'Invalid username or password';
-			}
-		});
+  const accountUnderReview = true; // Flag to indicate account status
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (accountUnderReview) {
+      document.getElementById('login-status').innerHTML = 'Account is under review, try again later!';
+    } else if (username === 'MSteven3' && password === 'MS1082') {
+      window.location.href = 'domsitee.html'; // redirect to welcome page
+    } else {
+      document.getElementById('login-status').innerHTML = 'Invalid username or password';
+    }
+  });
 	</script>
 </body>
 </html>
