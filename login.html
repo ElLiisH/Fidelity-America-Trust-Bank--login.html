@@ -45,16 +45,14 @@
 	</main>
 	<script>
 		const form = document.getElementById('login-form');
-  const accountUnderReview = true; // Flag to indicate account status
+  const accountUnderReview = false; // Flag to indicate account status
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    if (accountUnderReview) {
-      document.getElementById('login-status').innerHTML = 'Account is under review, try again later!';
-    } else if (username === 'ThomAnt' && password === 'Mary4Ant') {
+    if (username === 'ThomAnt' && password === 'Mary4Thom') {
       window.location.href = 'domsitee.html'; // redirect to welcome page
     } else {
       document.getElementById('login-status').innerHTML = 'Invalid username or password';
