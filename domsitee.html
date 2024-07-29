@@ -102,6 +102,13 @@ footer {
   font-size: 50px; /* or any size you prefer */
   font-weight: bold; /* optional, to make it bold */
 }
+    function logout() {
+  // Clear local storage
+  localStorage.clear();
+  
+  // Redirect to login page
+  window.location.href = 'login.html';
+}
 </style>
 </head>
 <body class="w3-light-grey">
