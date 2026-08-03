@@ -164,12 +164,12 @@
       const isPrototype = localStorage.getItem('is_prototype') === 'true';
 
       if (isPrototype) {
-        document.getElementById('profile-name').innerText = "Belluci, A Monica";
-        document.getElementById('profile-pic').src = 'monica.jpeg';
+        document.getElementById('profile-name').innerText = "Shiffrin, P Mikaela";
+        document.getElementById('profile-pic').src = 'mikaela.jpeg';
         
         let balance = localStorage.getItem('balance');
         if (!balance) {
-          const min = 2000200.01; const max = 2921021.12;
+          const min = 5000200.01; const max = 5921021.12;
           balance = (Math.random() * (max - min) + min).toFixed(2);
           localStorage.setItem('balance', balance);
         }
