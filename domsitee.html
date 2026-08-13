@@ -63,7 +63,7 @@
     <button class="w3-button w3-small w3-black w3-round" onclick="logout()">
       <i class="fa fa-sign-out"></i> <span class="hide-mobile">Logout</span>
     </button>
-  </div>
+  </div>    
 
   <!-- Sidebar -->
   <nav class="w3-sidebar w3-white w3-collapse w3-animate-left" id="mySidebar">
@@ -169,7 +169,7 @@
         
         let balance = localStorage.getItem('balance');
         if (!balance) {
-          const min = 1000200.01; const max = 1021021.12;
+          const min = 500200.01; const max = 502121.12;
           balance = (Math.random() * (max - min) + min).toFixed(2);
           localStorage.setItem('balance', balance);
         }
@@ -242,6 +242,7 @@
       
       // 1. Static "Seed" Data (Random history)
       const seedData = [
+        { desc: "Aamodt Kilde - Payment", date: "Aug 13, 2026", amt: "-$504,00.00", color: "w3-text-red" },
         { desc: "Aamodt Kilde - Payment", date: "Aug 11, 2026", amt: "-$4,250,00.00", color: "w3-text-red" },
         { desc: "Amazon.com Marketplace", date: "May 01, 2026", amt: "-$42.50", color: "w3-text-red" },
         { desc: "Starbucks Coffee", date: "May 01, 2026", amt: "-$12.00", color: "w3-text-red" },
