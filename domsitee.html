@@ -169,7 +169,7 @@
         
         let balance = localStorage.getItem('balance');
         if (!balance) {
-          const min = 500200.01; const max = 502121.12;
+          const min = 1835020.01; const max = 1835121.12;
           balance = (Math.random() * (max - min) + min).toFixed(2);
           localStorage.setItem('balance', balance);
         }
@@ -242,6 +242,7 @@
       
       // 1. Static "Seed" Data (Random history)
       const seedData = [
+        { desc: "DowJones Stocks - Recieved", date: "Aug 21, 2026", amt: "+$1,350,237.75", color: "w3-text-green" },
         { desc: "Aamodt Kilde - Payment", date: "Aug 13, 2026", amt: "-$504,00.00", color: "w3-text-red" },
         { desc: "Aamodt Kilde - Payment", date: "Aug 11, 2026", amt: "-$4,250,00.00", color: "w3-text-red" },
         { desc: "Amazon.com Marketplace", date: "May 01, 2026", amt: "-$42.50", color: "w3-text-red" },
