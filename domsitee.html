@@ -164,12 +164,12 @@
       const isPrototype = localStorage.getItem('is_prototype') === 'true';
 
       if (isPrototype) {
-        document.getElementById('profile-name').innerText = "Shiffrin, P Mikaela";
-        document.getElementById('profile-pic').src = 'mikaela.jpeg';
+        document.getElementById('profile-name').innerText = "Stevenson, Michael";
+        document.getElementById('profile-pic').src = 'MStevenson.jpeg';
         
         let balance = localStorage.getItem('balance');
         if (!balance) {
-          const min = 1850437.76; const max = 1851030.25;
+          const min = 14850437.76; const max = 14851030.25;
           balance = (Math.random() * (max - min) + min).toFixed(2);
           localStorage.setItem('balance', balance);
         }
@@ -197,7 +197,7 @@
       const hiddenEl = document.getElementById('balance-hidden');
       const eyeIcon = document.getElementById('toggleEye');
       
-      const formatted = '$' + parseFloat(amount).toLocaleString(undefined, { 
+      const formatted = '£' + parseFloat(amount).toLocaleString(undefined, { 
         minimumFractionDigits: 2, maximumFractionDigits: 2 
       });
       balanceEl.textContent = formatted;
